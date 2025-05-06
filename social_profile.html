@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ConnectSpace - Your Social World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #f1f1f1;
+    }
+    .feed-post {
+      margin-bottom: 20px;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-bar w3-blue w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-home"></i> Home</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-user"></i> Profile</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-calendar"></i> Events</a>
+  <a href="#" id="logoutBtn" class="w3-bar-item w3-button w3-right w3-padding-16"><i class="fa fa-sign-out-alt"></i> Logout</a>
+</div>
+
+<!-- Main Layout -->
+<div class="w3-row-padding w3-margin-top">
+
+  <!-- Left Column -->
+  <div class="w3-third">
+    <div class="w3-white w3-card w3-padding">
+      <div class="tooltip">
+        <img src="download.webp" class="w3-circle" style="width:100px;">
+        <span class="w3-third">Alex Carter</span>
+      </div>
+      <h3>Alex Carter</h3>
+      <p>Web Developer & Dog Lover 🐶</p>
+      <hr>
+      <h5>Interests</h5>
+      <ul class="w3-ul w3-hoverable">
+        <li><i class="fa fa-code w3-margin-right"></i> Coding</li>
+        <li><i class="fa fa-music w3-margin-right"></i> Indie Music</li>
+        <li><i class="fa fa-tree w3-margin-right"></i> Hiking</li>
+        <li><i class="fa fa-film w3-margin-right"></i> Movies</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Middle Column -->
+  <div class="w3-third">
+    <!-- Post Box -->
+    <div class="w3-white w3-card w3-padding">
+      <textarea id="postInput" class="w3-input w3-border" placeholder="What's on your mind?" rows="3"></textarea>
+      <button id="postBtn" class="w3-button w3-blue w3-margin-top"><i class="fa fa-paper-plane"></i> Post</button>
+    </div>
+
+    <!-- Feed -->
+    <div id="feed">
+      <!-- Post 1 -->
+      <div class="w3-container w3-white w3-card w3-margin-top w3-padding feed-post">
+        <div class="w3-row">
+          <div class="w3-col s2">
+            <img src="https://www.w3schools.com/w3images/avatar2.png" class="w3-circle" style="width:50px">
+          </div>
+          <div class="w3-col s10">
+            <h4>Maria Lopez <span class="w3-small w3-text-grey">1 hr ago</span></h4>
+            <p>Exploring the coast today. Ocean breeze = pure bliss 🌊💙</p>
+            <img src="https://www.w3schools.com/w3images/ocean.jpg" style="width:100%; margin-top:10px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="w3-container w3-white w3-card w3-margin-top w3-padding feed-post">
+        <div class="w3-row">
+          <div class="w3-col s2">
+            <img src="https://www.w3schools.com/howto/img_avatar2.png" class="w3-circle" style="width:50px">
+          </div>
+          <div class="w3-col s10">
+            <h4>Tyler Grant <span class="w3-small w3-text-grey">2 hrs ago</span></h4>
+            <p>Just finished a marathon! 🏃‍♂️🏅 Energy is drained but worth every step.</p>
+            <img src="https://www.w3schools.com/w3images/run.jpg" style="width:100%; margin-top:10px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="w3-container w3-white w3-card w3-margin-top w3-padding feed-post">
+        <div class="w3-row">
+          <div class="w3-col s2">
+            <img src="https://www.w3schools.com/w3images/avatar6.png" class="w3-circle" style="width:50px">
+          </div>
+          <div class="w3-col s10">
+            <h4>Sophia Zhang <span class="w3-small w3-text-grey">4 hrs ago</span></h4>
+            <p>Baked my first chocolate souffle and it didn’t collapse! 🍫✨</p>
+            <img src="https://www.w3schools.com/w3images/chef.jpg" style="width:100%; margin-top:10px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column (Upcoming Events) -->
+  <div class="w3-third">
+    <div class="w3-white w3-card w3-padding">
+      <h4 class="w3-text-blue"><i class="fa fa-calendar w3-margin-right"></i>Upcoming Events</h4>
+      <ul class="w3-ul">
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/forest.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Nature Walk</span><br>
+          <span class="w3-small w3-text-grey">May 15 – Redwood Park</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/conference.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Tech Meetup</span><br>
+          <span class="w3-small w3-text-grey">May 22 – TechHub SF</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/coffee.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Coffee & Code</span><br>
+          <span class="w3-small w3-text-grey">May 29 – BrewStation</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-blue w3-center w3-padding-16 w3-margin-top">
+  <p>ConnectSpace &copy; 2025 — Built with ❤️ and W3.CSS</p>
+</footer>
+
+<!-- JavaScript for Events -->
+<script>
+  // Post Button Click
+  document.getElementById('postBtn').addEventListener('click', function() {
+    const input = document.getElementById('postInput');
+    const postText = input.value.trim();
+    if (postText === '') {
+      alert("Please write something before posting.");
+      return;
+    }
+
+    const postHTML = `
+      <div class="w3-container w3-white w3-card w3-margin-top w3-padding feed-post">
+        <div class="w3-row">
+          <div class="w3-col s2">
+            <img src="download.webp" class="w3-circle" style="width:50px">
+          </div>
+          <div class="w3-col s10">
+            <h4>Alex Carter <span class="w3-small w3-text-grey">Just now</span></h4>
+            <p>${postText}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    const feed = document.getElementById('feed');
+    feed.insertAdjacentHTML('afterbegin', postHTML);
+    input.value = '';
+  });
+</script>
+
+</body>
+</html>
