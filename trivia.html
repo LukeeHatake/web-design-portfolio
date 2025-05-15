@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Dropdowns and Accordions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+  <h2> Fun Facts About Italy</h2>
+ 
+  <!-- Question #1 - regular answer-->
+<!-- create a container for an accordion style button -->
+<div class="w3-container w3-auto">
+<!-- accordion style button, only change color-->
+<button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-yellow w3-left-align "
+style="width: 50%">1. What shape is italy? &#9660;</button>
+<!-- div for the answer that will drop down once a button is clicked -->
+<div id="Demo1" class="w3-container w3-hide">
+  <h4>A boot</h4>
+</div> <!--end of answer div-->
+
+</div> <!-- closing <div> for an accordion style button -->
+<!-- add breaks as needed for space between buttons -->
+<br>
+<br>
+<!-- Question #2 - image answer-->
+<!-- create a container for an accordion style button -->
+<div class="w3-container w3-auto">
+    <!-- accordion style button, only change color-->
+    <button onclick="myFunction('Demo2')" class="w3-btn w3-block w3-yellow w3-left-align "
+    style="width: 50%">2. The most famous fountain in Italy? &#9660;</button>
+    <!-- div for the answer that will drop down once a button is clicked -->
+    <div id="Demo2" class="w3-container w3-hide">
+      <h4>Trevi Fountain</h4>
+      <img src="trevie.png" alt="trevi" style="width:250px">
+    </div> <!--end of answer div-->
+    
+    </div> <!-- closing <div> for an accordion style button -->
+    <!-- add breaks as needed for space between buttons -->
+    <br>
+    <br>
+    <!-- Question #3 - Regualr answer-->
+<!-- create a container for an accordion style button -->
+<div class="w3-container w3-auto">
+    <!-- accordion style button, only change color-->
+    <button onclick="myFunction('Demo3')" class="w3-btn w3-block w3-yellow w3-left-align "
+    style="width: 50%">3. The smallest country in Italy? &#9660;</button>
+    <!-- div for the answer that will drop down once a button is clicked -->
+    <div id="Demo3" class="w3-container w3-hide">
+      <h4>Vatican City. Did you know that is also the smallest in the world?   </h4>
+    </div> <!--end of answer div-->
+    
+    </div> <!-- closing <div> for an accordion style button -->
+    <!-- add breaks as needed for space between buttons -->
+    <br>
+    <br>
+    <!-- Question #4 - Regular answer-->
+<!-- create a container for an accordion style button -->
+<div class="w3-container w3-auto">
+    <!-- accordion style button, only change color-->
+    <button onclick="myFunction('Demo4')" class="w3-btn w3-block w3-yellow w3-left-align "
+    style="width: 50%">4. what is the largest active volcano in Italy? &#9660;</button>
+    <!-- div for the answer that will drop down once a button is clicked -->
+    <div id="Demo4" class="w3-container w3-hide">
+      <h4>Mount Etna. Did you know it was also one of the largest volcanos in the world?   </h4>
+    </div> <!--end of answer div-->
+    
+    </div> <!-- closing <div> for an accordion style button -->
+    <!-- add breaks as needed for space between buttons -->
+    <br>
+    <br>
+    <!-- Question #5 - Regualr answer-->
+<!-- create a container for an accordion style button -->
+<div class="w3-container w3-auto">
+    <!-- accordion style button, only change color-->
+    <button onclick="myFunction('Demo5')" class="w3-btn w3-block w3-yellow w3-left-align "
+    style="width: 50%">5.How many dialects does Italy have? &#9660;</button>
+    <!-- div for the answer that will drop down once a button is clicked -->
+    <div id="Demo5" class="w3-container w3-hide">
+      <h4>Italy has 30 plus the standerd Italian language   </h4>
+    </div> <!--end of answer div-->
+    
+    </div> <!-- closing <div> for an accordion style button -->
+    <!-- add breaks as needed for space between buttons -->
+    <br>
+    <br>
+    
+<!-- footer with your name on it -->
+
+<div>
+    <footer> CHANGE ME </footer>
+</div>
+
+<!-- DO NOT CHANGE THE SCRIPT -->
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Searchly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f9f9fb;
+      --text: #222;
+      --secondary: #4c69e5;
+      --input-bg: white;
+      --border: #ccc;
+      --card-bg: #ffffff;
+      --hover-glow: 0 0 8px var(--secondary);
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --secondary: #82aaff;
+      --input-bg: #1e1e1e;
+      --border: #333;
+      --card-bg: #1c1c1c;
+      --hover-glow: 0 0 12px var(--secondary);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--input-bg);
+    }
+
+    header nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: var(--secondary);
+      text-shadow: var(--hover-glow);
+    }
+
+    .toggle-switch {
+      cursor: pointer;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background-color: transparent;
+      color: var(--text);
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch:hover {
+      background-color: var(--input-bg);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 30px;
+      letter-spacing: -1px;
+      transition: color 0.3s;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 5px var(--secondary); }
+      50% { text-shadow: 0 0 15px var(--secondary); }
+      100% { text-shadow: 0 0 5px var(--secondary); }
+    }
+
+    .search-container {
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .search-box {
+      display: flex;
+      border: 2px solid var(--border);
+      border-radius: 40px;
+      background-color: var(--input-bg);
+      overflow: hidden;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background-color: transparent;
+      color: var(--text);
+    }
+
+    .search-box button {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0 24px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #3a55c2;
+    }
+
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .quick-links a {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .quick-links a:hover {
+      background-color: var(--secondary);
+      color: white;
+      box-shadow: var(--hover-glow);
+    }
+
+    .quote-box {
+      margin-top: 40px;
+      font-style: italic;
+      color: var(--text);
+      font-size: 16px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      background-color: var(--input-bg);
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Searchly</div>
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Images</a>
+      <a href="#">Maps</a>
+      <a href="#">Sign In</a>
+      <button class="toggle-switch" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="search-container">
+      <form class="search-box" action="https://duckduckgo.com/" method="GET">
+        <input type="text" name="q" placeholder="Search the web..." required>
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+
+      <div class="quick-links">
+        <a href="https://news.ycombinator.com/" target="_blank">Tech News</a>
+        <a href="https://reddit.com/" target="_blank">Reddit</a>
+        <a href="https://wikipedia.org/" target="_blank">Wikipedia</a>
+        <a href="https://openai.com/" target="_blank">OpenAI</a>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+      </div>
+
+      <div class="quote-box">
+        “The best way to predict the future is to invent it.” – Alan Kay
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Searchly — Designed by Lucas Ferguson — Not affiliated with Google
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
